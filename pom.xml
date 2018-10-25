@@ -22,6 +22,8 @@
 
     <modules>
         <module>server-router</module>
+        <module>server-auth</module>
+        <module>app</module>
     </modules>
 
 
@@ -52,7 +54,7 @@
 
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-jwt</artifactId>
+            <artifactId>spring-cloud-jwt</artifactId>
         </dependency>
 
         <dependency>

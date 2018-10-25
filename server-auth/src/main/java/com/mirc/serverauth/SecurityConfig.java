@@ -1,5 +1,6 @@
 package com.mirc.serverauth;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
@@ -32,12 +33,15 @@ import org.springframework.web.filter.CorsFilter;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 
+    @Autowired
+    private UserDetailsService userDetailService;
+
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 //        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
 //        String finalPassword = bCryptPasswordEncoder.encode("123");
 //        auth.inMemoryAuthentication().withUser("u1").password(finalPassword).roles("ADMIN");
-        auth.userDetailsService(userDetailsService()).passwordEncoder(passwordEncoder());
+        auth.userDetailsService(userDetailService).passwordEncoder(passwordEncoder());
     }
 
 
@@ -50,15 +54,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
 
-    @Bean
-    @Override
-    protected UserDetailsService userDetailsService(){
-        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
-        String pwd = bCryptPasswordEncoder.encode("a");
-        InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
-        manager.createUser(User.withUsername("a").password(pwd).authorities("USER").build());
-        return manager;
-    }
+//    @Bean
+//    @Override
+//    protected UserDetailsService userDetailsService(){
+//        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+//        String pwd = bCryptPasswordEncoder.encode("a");
+//        InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
+//        manager.createUser(User.withUsername("a").password(pwd).authorities("USER").build());
+//        return manager;
+//    }
 
     /**
      * springboot2.0 删除了原来的 plainTextPasswordEncoder
@@ -90,7 +94,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin()
                 .loginPage("/login")
-                .permitAll();
+                .permitAll()
+                .and()
+                .rememberMe()
+                .rememberMeParameter("remember-me").userDetailsService(userDetailService)
+        ;
         // @formatter:off
 /*        http.
                 requestMatchers()

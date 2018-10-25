@@ -32,7 +32,8 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
 
         http.httpBasic().disable();
-        http.authorizeRequests().antMatchers("/actuator/**","/getToken").permitAll().anyRequest().authenticated();
+        http.authorizeRequests().antMatchers("/actuator/**","/getToken","/api/**", "/bak/**", "/css/**", "/ctrl/**",
+                "/fonts/**", "/img/**", "/images/**","/js/*/**", "/l10n/**", "/tpl/**", "/login/**", "/vendor/**").permitAll().anyRequest().authenticated();
     }
 
 }

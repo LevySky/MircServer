@@ -2,19 +2,61 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
-    <title>Spring Security Example </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>BOSS</title>
+    <link href="/at/login/style_log.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/at/login/style.css">
+    <link rel="stylesheet" type="text/css" href="/at/login/userpanel.css">
+
 </head>
-<body>
 <div th:if="${param.error}">
     Invalid username and password.
 </div>
 <div th:if="${param.logout}">
     You have been logged out.
 </div>
-<form th:action="@{/login}" method="post">
-    <div><label> User Name : <input type="text" name="username"/> </label></div>
-    <div><label> Password: <input type="password" name="password"/> </label></div>
-    <div><input type="submit" value="Sign In"/></div>
-</form>
-</body>
-</html>
+<body class="login" mycollectionplug="bind" style="background-image: url('/at/images/sky-background.png');">
+<div class="login_m" style="">
+    <div class="login_logo"><span style="color: #b6c5da;font-variant: small-caps;font-weight: bold;font-size: 30px;text-shadow: 5px 5px 5px #2b2b2b;">BIGAO BOSS</span></div>
+    <div class="login_boder" style="background-color: #79b3e0;border-radius: 19px;">
+
+
+        <form th:action="@{/login}" method="post">
+
+            <div class="login_padding" id="login_model">
+
+                <h2>账号</h2>
+                <label>
+                    <input type="text" id="username" name="username" class="txt_input txt_input2"  placeholder="请输入账号" >
+                </label>
+                <h2>密码</h2>
+                <label>
+                    <input type="password" name="password" id="userpwd" class="txt_input"  placeholder="请输入密码">
+                </label>
+
+                <div class="rem_sub">
+                    <div class="rem_sub_l">
+                        <input type="checkbox"  id="remember-me" name="remember-me">
+                        <label for="checkbox">记住密码</label>
+                    </div>
+                    <label>
+                        <input type="submit" value="Sign In" class="sub_button" name="button"  style="opacity: 0.7;">
+                    </label>
+                </div>
+            </div>
+        </form>
+
+        <div class="copyrights">Collect from <a href="http://localhost:9090/login" ></a>BGBC</div>
+
+
+
+        <!--login_padding  Sign up end-->
+    </div><!--login_boder end-->
+</div><!--login_m end-->
+<br> <br>
+<p align="center"> More INFO BGBC - Collect from <a href="http://localhost:9090/login" title="网页模板" target="_blank">BGBC</a></p>
+
+
+
+</body></html>
