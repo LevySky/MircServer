@@ -1,0 +1,62 @@
+server:
+  port: 9060
+  servlet:
+    context-path: /r
+spring:
+  application:
+    name: mirc-server-router
+  thymeleaf:
+    prefix: classpath:templates/
+    suffix: .html
+    mode: LEGACYHTML5
+    encoding: UTF-8
+    cache: false
+    servlet:
+      content-type: text/html
+  cloud:
+      consul:
+        host: 192.168.141.131
+        port: 8500
+        discovery:
+          healthCheckPath: /r/actuator/health
+          healthCheckInterval: 15s
+          instance-id: ${spring.application.name}-${server.port}
+#          register: true
+#  jpa:
+#    database: mysql
+#    database-platform: org.hibernate.dialect.MySQL5Dialect
+#    show-sql: false
+#    hibernate:
+#      ddl-auto: none
+#  datasource:
+#    url: jdbc:mysql://192.168.1.123:3306/bgbc?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&useServerPrepStmts=true&rewriteBatchedStatements=true
+#    username: game
+#    password: game
+#    driver-class-name: com.mysql.jdbc.Driver
+security:
+  oauth2:
+    client:
+      accessTokenUri: http://localhost:9066/at/oauth/token
+      userAuthorizationUri: http://localhost:9066/at/oauth/authorize
+      clientId: html
+      clientSecret: html
+#      registered-redirect-uri: http://localhost:9060/aa
+#      pre-established-redirect-uri: http://localhost:9066/getToken
+#      authorized-grant-types: authorization_code,refresh_token
+#      scope: myscope
+#      use-current-uri: true
+#      auto-approve-scopes: myscope
+    resource:
+#      id: auth
+      user-info-uri: http://localhost:9066/at/user
+#      token-info-uri: http://localhost:9066/oauth/check-token
+#      prefer-token-info: false
+
+zuul:
+  routes:
+    api-a:
+      path: /router/**
+      serviceId: mirc-server-router
+    api-b:
+      path: /app/**
+      serviceId: mirc-server-app

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="app" />
+        <module name="server-auth" />
+        <module name="server-center" />
+        <module name="server-router" />
+        <module name="server-routerr" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="1.8">
+      <module name="app" target="1.8" />
+      <module name="MircServer" target="1.8" />
+      <module name="server-auth" target="1.8" />
+      <module name="server-center" target="1.8" />
+      <module name="server-router" target="1.8" />
+      <module name="server-routerr" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
