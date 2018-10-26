@@ -3,8 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MircServer.iml" filepath="$PROJECT_DIR$/MircServer.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../MircServer/app/app.iml" filepath="$PROJECT_DIR$/../MircServer/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/server-auth/server-auth.iml" filepath="$PROJECT_DIR$/server-auth/server-auth.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../MircServer/server-config/server-config.iml" filepath="$PROJECT_DIR$/../MircServer/server-config/server-config.iml" />
       <module fileurl="file://$PROJECT_DIR$/server-router/server-router.iml" filepath="$PROJECT_DIR$/server-router/server-router.iml" />
     </modules>
   </component>

@@ -4,6 +4,7 @@
     <file url="file://$PROJECT_DIR$/../MircServer" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../MircServer/app" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../MircServer/server-auth" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../MircServer/server-config" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../MircServer/server-router" charset="UTF-8" />
   </component>
 </project>

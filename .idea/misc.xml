@@ -10,7 +10,8 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/server-center/pom.xml" />
         <option value="$PROJECT_DIR$/server-auth/pom.xml" />
-        <option value="$PROJECT_DIR$/../MircServer/app/pom.xml" />
+        <option value="$PROJECT_DIR$/app/pom.xml" />
+        <option value="$PROJECT_DIR$/../MircServer/server-config/pom.xml" />
       </list>
     </option>
   </component>

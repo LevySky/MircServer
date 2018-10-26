@@ -63,7 +63,7 @@ public class OAuth2ServerConfig extends AuthorizationServerConfigurerAdapter {
     @Bean
     public AuthorizationServerTokenServices tokenServices() {
         DefaultTokenServices defaultTokenServices = new DefaultTokenServices();
-//        defaultTokenServices.setAccessTokenValiditySeconds(-1);
+        defaultTokenServices.setAccessTokenValiditySeconds(300);
 //        defaultTokenServices.setRefreshTokenValiditySeconds(-1);
 //        defaultTokenServices.setSupportRefreshToken(true);
 //        defaultTokenServices.setReuseRefreshToken(false);
@@ -73,7 +73,8 @@ public class OAuth2ServerConfig extends AuthorizationServerConfigurerAdapter {
 
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) {
-        endpoints.tokenServices(tokenServices())
+        endpoints
+                .tokenServices(tokenServices())
                 .accessTokenConverter(jwtAccessTokenConverter())
                 .authenticationManager(authenticationManager)
                 .userDetailsService(userDetailsService)

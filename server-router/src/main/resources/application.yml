@@ -15,7 +15,7 @@ spring:
       content-type: text/html
   cloud:
       consul:
-        host: 192.168.141.131
+        host: 192.168.141.132
         port: 8500
         discovery:
           healthCheckPath: /r/actuator/health

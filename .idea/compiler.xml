@@ -9,6 +9,7 @@
         <module name="app" />
         <module name="server-auth" />
         <module name="server-center" />
+        <module name="server-config" />
         <module name="server-router" />
         <module name="server-routerr" />
       </profile>
@@ -18,6 +19,7 @@
       <module name="MircServer" target="1.8" />
       <module name="server-auth" target="1.8" />
       <module name="server-center" target="1.8" />
+      <module name="server-config" target="1.8" />
       <module name="server-router" target="1.8" />
       <module name="server-routerr" target="1.5" />
     </bytecodeTargetLevel>

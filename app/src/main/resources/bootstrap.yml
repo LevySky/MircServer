@@ -14,14 +14,28 @@ spring:
     servlet:
       content-type: text/html
   cloud:
-      consul:
-        host: 192.168.141.131
-        port: 8500
-        discovery:
-          healthCheckPath: /app/actuator/health
-          healthCheckInterval: 15s
-          instance-id: ${spring.application.name}-${server.port}
+    consul:
+      host: 192.168.141.132
+      port: 8500
+      discovery:
+        healthCheckPath: /app/actuator/health
+        healthCheckInterval: 15s
+        instance-id: ${spring.application.name}-${server.port}
 #          register: true
+    config:
+      uri: http://localhost:9067/
+      profile: dev
+      label: master
+    bus:
+      enabled: true
+      trace:
+        enabled: true
+  rabbitmq:
+    host: 192.168.141.132
+    port: 5672
+    username: levy
+    password: levy
+
 #  jpa:
 #    database: mysql
 #    database-platform: org.hibernate.dialect.MySQL5Dialect
@@ -51,3 +65,4 @@ security:
       user-info-uri: http://localhost:9066/at/user
 #      token-info-uri: http://localhost:9066/oauth/check-token
 #      prefer-token-info: false
+management.endpoints.web.exposure.include: bus-refresh,health,*
