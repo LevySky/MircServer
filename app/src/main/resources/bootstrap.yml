@@ -53,7 +53,7 @@ security:
       accessTokenUri: http://localhost:9066/at/oauth/token
       userAuthorizationUri: http://localhost:9066/at/oauth/authorize
       clientId: html
-      clientSecret: html
+       : html
 #      registered-redirect-uri: http://localhost:9060/aa
 #      pre-established-redirect-uri: http://localhost:9066/getToken
 #      authorized-grant-types: authorization_code,refresh_token
