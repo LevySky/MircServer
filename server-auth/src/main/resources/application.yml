@@ -47,7 +47,7 @@ spring:
           healthCheckInterval: 15s
           instance-id: ${spring.application.name}-${server.port}
 #          ip-address:
-          health-check-url: http://${java.rmi.server.hostname}:9066/at/actuator/health
+          health-check-url: http://192.168.141.132:9066/at/actuator/health
 #          register: true
   jpa:
     database: mysql
